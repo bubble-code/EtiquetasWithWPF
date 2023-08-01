@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Configuration;
 using System.Data;
+using EtiquetasWithWPF.Pages;
 
 namespace EtiquetasWithWPF
 {
@@ -25,7 +26,11 @@ namespace EtiquetasWithWPF
     {
         private string connectionString = ConfigurationManager.ConnectionStrings["conexionSQL"].ConnectionString;
         private SqlConnection connection;
-        public MainWindow() => InitializeComponent();
+        public MainWindow()
+        {
+            InitializeComponent();
+            //navigationFrame.NavigationService
+        }
 
         public SqlConnection Connection { get => connection; set => connection = value; }
 
@@ -36,10 +41,10 @@ namespace EtiquetasWithWPF
                 Connection = new SqlConnection(connectionString: "Persist Security Info=False;Initial Catalog=SolmicroERP6_PruebasSub;Data Source=SERVIDOR\\SOLMICRO6;User ID=sa; pwd=Altai2021;Encrypt=True;TrustServerCertificate=True;");
                 Connection.Open();
                 string query = "Select * from tbMaestroCorreos";
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(query,Connection);
-                DataTable dataTable = new DataTable();
+                SqlDataAdapter dataAdapter = new(query,Connection);
+                DataTable dataTable = new();
                 dataAdapter.Fill(dataTable);
-                dataGrid.ItemsSource = dataTable.DefaultView;
+                //dataGrid.ItemsSource = dataTable.DefaultView;
                // Autocompletar();
             }
             catch (Exception ex)
@@ -47,6 +52,20 @@ namespace EtiquetasWithWPF
                 MessageBox.Show(ex.Message);
             }
             finally { Connection.Close(); }
+        }
+
+        //Navegacion
+        private void Inicio_Click(object sender, RoutedEventArgs e)
+        {
+            navigationFrame.Navigate(new InicioPage());
+        }
+        private void Producto_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Contacto_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
