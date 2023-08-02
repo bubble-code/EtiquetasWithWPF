@@ -5,18 +5,73 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EtiquetasWithWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="670" Width="1227">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="30"/>
-        </Grid.RowDefinitions>
+        Title="MainWindow" Height="670" Width="1227"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        >
+    <Border Background="#272537" CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Text="FAVRAM"
+                Foreground="White"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="28"
+                />
+            <StackPanel Grid.Row="1">
+                <RadioButton  
+                    Content="Etiquetas"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"                    
+                    Style="{StaticResource MenuButtonTheme}"
+                              /> 
+                <RadioButton  
+                    Content="Embalajes"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"                    
+                    Style="{StaticResource MenuButtonTheme}"
+                              /> 
+                <RadioButton  
+                    Content="Consultas"
+                    Height="50"
+                    Foreground="White"
+                    FontSize="14"                    
+                    Style="{StaticResource MenuButtonTheme}"
+                              />
+            </StackPanel>
+            <TextBox 
+                Width="250"
+                Height="40"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left"
+                Margin="5"
+                Grid.Column="1"
+                Style="{StaticResource TextBoxTheme}"
+                />
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10"/>
+            <Frame  x:Name="navigationFrame" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+    </Border>
+    
+    <!--<Grid>
+        
         <Menu Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" DockPanel.Dock="Top" FontSize="18" Background="{x:Null}">
             <MenuItem Margin="10,0,10,0"  Click="Inicio_Click">
                 <MenuItem.Header>
                     <StackPanel Orientation="Vertical">
-           <!--<Image Source="Assets\equilibrar.png" Stretch="Fill" Width="16" Height="16" Margin="0,0,5,0"/>-->
+           --><!--<Image Source="Assets\equilibrar.png" Stretch="Fill" Width="16" Height="16" Margin="0,0,5,0"/>--><!--
                         <TextBlock Text="Inicio"/>
                     </StackPanel>
                     
@@ -29,14 +84,14 @@
 
             </MenuItem>
         </Menu>
-        <!--//Footer  //-->
+        --><!--//Footer  //--><!--
         <Grid Grid.Row="2" Background="Azure" HorizontalAlignment="Center" VerticalAlignment="Center" >
             <TextBlock Text="Desarrollado por bubble_code" TextWrapping="Wrap" TextAlignment="Center" Margin="-589,0,-598,0"   />
 
         </Grid>
-        <Frame  x:Name="navigationFrame" Grid.Row="1"/>
+        
 
 
 
-    </Grid>
+    </Grid>-->
 </Window>
