@@ -2,8 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:EtiquetasWithWPF"
+             xmlns:viewModel="clr-namespace:EtiquetasWithWPF.MVC.ViewModel"
+             xmlns:view="clr-namespace:EtiquetasWithWPF.MVC.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="MVC/Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="MVC/Theme/TextBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewModel:EtiquetaModel}">
+                <view:Etiquetas/>
+            </DataTemplate>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
