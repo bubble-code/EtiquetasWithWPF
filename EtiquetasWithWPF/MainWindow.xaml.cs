@@ -57,7 +57,7 @@ namespace EtiquetasWithWPF
         //Navegacion
         private void Inicio_Click(object sender, RoutedEventArgs e)
         {
-            navigationFrame.Navigate(new InicioPage());
+            //navigationFrame.Navigate(new InicioPage());
         }
         private void Producto_Click(object sender, RoutedEventArgs e)
         {

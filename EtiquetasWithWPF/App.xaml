@@ -10,9 +10,13 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="MVC/Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="MVC/Theme/TextBoxTheme.xaml"/>
+                <ResourceDictionary Source="MVC/Theme/TextBoxSearchTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewModel:EtiquetaModel}">
                 <view:Etiquetas/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:EmbalajeViewModel}">
+                <view:Embalaje/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

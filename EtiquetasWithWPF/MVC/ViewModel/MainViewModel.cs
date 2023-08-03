@@ -6,7 +6,7 @@ namespace EtiquetasWithWPF.MVC.ViewModel
     internal class MainViewModel:ObservableObject
     {
         public EtiquetaModel EtiquetaVM { get; set; }
-        private object _currentView;
+        private object? _currentView;
 
         public object CurrentView
         {
@@ -20,7 +20,8 @@ namespace EtiquetasWithWPF.MVC.ViewModel
 
         public MainViewModel() 
         { 
-        
+        EtiquetaVM = new EtiquetaModel();
+            CurrentView = EtiquetaVM;
         }
     }
 }
