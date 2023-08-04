@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:EtiquetasWithWPF.MVC.View"
+             xmlns:local="clr-namespace:EtiquetasWithWPF.MVC.View" xmlns:controls="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="650" d:DesignWidth="1100" 
+             Loaded="UserControl_Loaded">
     <StackPanel >
         <StackPanel Orientation="Horizontal">
-        <TextBlock 
+            <TextBlock 
            Text ="Etiquetas"
             Foreground="White"
             FontSize="28"
@@ -16,29 +17,47 @@
             Margin="0,0,0,20"
             Width="200"
             />
-            <Button Content="Buscar" Margin="0,5,0,5" Width="102" Height="28"/>
+            <Button Content="Buscar" Margin="0,5,0,5" Width="102" Height="28"
+                    Click="Button_Click"/>
         </StackPanel>
         <StackPanel  Orientation="Horizontal">
-        <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}"  DataContext="Busca Cliente" />
-        <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Pedido Desde" />
-        <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Pedido Hasta" />
-                <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}"  DataContext="Articulo" />
-            </StackPanel>
-         <StackPanel  Orientation="Horizontal">
-        <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Fecha Desde" />
-         <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Fecha Hasta" />
-         <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}"  DataContext="Su Ref." />
-         </StackPanel>
-            <StackPanel  Orientation="Horizontal">
-                <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Fecha Desde" />
-                <TextBox Width="161" Style="{StaticResource TextBoxSearchTheme}" DataContext="Fecha Hasta" />
-            </StackPanel>
+            <controls:AutoCompleteBox 
+                x:Name="tb" Width="200"
+                Height="26" Placeholder="Buscar Cliente" 
+                Margin="0,0,10,10" Background="#FF353340" 
+                Foreground="#FFCFCFCF" BorderBrush="#FF7C7A86"/>
+            <DatePicker 
+                x:Name="desde"
+                Width="179" Height="26"
+                Margin="0,0,10,10" Background="#FF353340" 
+                DisplayDate="2023-04-08" FirstDayOfWeek="Monday" 
+               SelectedDateFormat="Short"
+                DisplayDateStart="04/08/2023"
+                />
+            <DatePicker 
+                x:Name="hasta"
+                Width="179" Height="26"
+                Margin="0,0,10,10" Background="#FF353340" 
+                DisplayDate="2023-04-08" FirstDayOfWeek="Monday" 
+               SelectedDateFormat="Short"
+                DisplayDateStart="04/08/2023"
+                />
+            <controls:AutoCompleteBox 
+                x:Name="albaran" Width="200"
+                Height="26" Placeholder="Albarán" 
+                Margin="0,0,10,10" Background="#FF353340" 
+                Foreground="#FFCFCFCF" BorderBrush="#FF7C7A86"/>
+            <controls:AutoCompleteBox 
+                x:Name="reclam" Width="200"
+                Height="26" Placeholder="Reclam."
+                Margin="0,0,10,10" Background="#FF353340" 
+                Foreground="#FFCFCFCF" BorderBrush="#FF7C7A86"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal">
+        </StackPanel>
 
-        
         <StackPanel Orientation="Horizontal" >
-            <Border 
-                Width="780"
-                Height="390">
+            <Border Width="1100" Height="500">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="#5b3cff" Offset="0.0"/>
@@ -48,9 +67,14 @@
                 <!--<Border.Clip>
                     <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0,0,400,200"/>
                 </Border.Clip>-->
-                <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                <DataGrid x:Name="mainGrid" Background="#FF353340" 
+                          Foreground="#FF353340">
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn />
+                    </DataGrid.Columns>
+                </DataGrid>
             </Border>
         </StackPanel>
-        
+
     </StackPanel>
 </UserControl>
