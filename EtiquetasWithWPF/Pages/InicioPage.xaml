@@ -30,7 +30,8 @@
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <DataGrid Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" x:Name="gridExpediciones"/>
+            <DataGrid Grid.Column="1" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                      x:Name="gridExpediciones"/>
 
         </Grid>
     </Grid>

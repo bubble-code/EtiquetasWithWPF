@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:EtiquetasWithWPF"
         xmlns:viewModel="clr-namespace:EtiquetasWithWPF.MVC.ViewModel"
         mc:Ignorable="d"
-        Title="MainWindow" Height="670" Width="1227"
+        Title="Impresion de Etiquetas" Height="870" Width="1427"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True"
@@ -14,8 +14,8 @@
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
-    
-    <Border Background="#272537" CornerRadius="20">
+
+    <Border Background="#FF43434A" CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100"/>
