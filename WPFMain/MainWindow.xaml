@@ -27,7 +27,7 @@
                     
                     >
         </StackPanel>
-        <DataGrid x:Name="frmMntoExpedicioneDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource frmMntoExpedicioneViewSource3}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,201,259,92" Grid.Row="2">
+        <DataGrid x:Name="frmMntoExpedicioneDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource frmMntoExpedicioneViewSource3}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,201,165,92" Grid.Row="2">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn >
                     <DataGridCheckBoxColumn.ElementStyle>
