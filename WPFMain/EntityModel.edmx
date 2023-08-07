@@ -1,0 +1,413 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SolmicroERP6_PruebasSubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SolmicroERP6_PruebasSub.dbo.frmMntoExpediciones' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="frmMntoExpediciones">
+          <Key>
+            <PropertyRef Name="IDLineaPedido" />
+            <PropertyRef Name="IDPedido" />
+            <PropertyRef Name="NPedido" />
+            <PropertyRef Name="FechaEntrega" />
+            <PropertyRef Name="IDCliente" />
+            <PropertyRef Name="IDArticulo" />
+            <PropertyRef Name="DescArticulo" />
+            <PropertyRef Name="QPedida" />
+            <PropertyRef Name="QServida" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Dto1" />
+            <PropertyRef Name="Dto3" />
+            <PropertyRef Name="Dto2" />
+            <PropertyRef Name="Importe" />
+            <PropertyRef Name="UdValoracion" />
+            <PropertyRef Name="Factor" />
+            <PropertyRef Name="Bloqueado" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IDAlmacen" />
+            <PropertyRef Name="AgrupAlbaran" />
+            <PropertyRef Name="EnvioCompleto" />
+            <PropertyRef Name="CantidadConfirmada" />
+            <PropertyRef Name="DescCliente" />
+            <PropertyRef Name="Confirmado" />
+            <PropertyRef Name="QAlbaran" />
+            <PropertyRef Name="GestionStockPorLotes" />
+            <PropertyRef Name="IDTipo" />
+            <PropertyRef Name="NSerieObligatorio" />
+            <PropertyRef Name="EmpresaGrupo" />
+            <PropertyRef Name="EntregaProveedor" />
+            <PropertyRef Name="IDUdInterna" />
+            <PropertyRef Name="GestionStock" />
+            <PropertyRef Name="Activo" />
+            <PropertyRef Name="KitVenta" />
+            <PropertyRef Name="FirmeEDI" />
+          </Key>
+          <Property Name="IDLineaPedido" Type="int" Nullable="false" />
+          <Property Name="IDPedido" Type="int" Nullable="false" />
+          <Property Name="NPedido" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="PedidoCliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaEntrega" Type="datetime" Nullable="false" />
+          <Property Name="FechaPreparacion" Type="datetime" />
+          <Property Name="Año" Type="int" />
+          <Property Name="Mes" Type="int" />
+          <Property Name="FechaAviso" Type="datetime" />
+          <Property Name="Semana" Type="int" />
+          <Property Name="IDCliente" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="IDDireccionEnvio" Type="int" />
+          <Property Name="RefCliente" Type="nvarchar" MaxLength="50" />
+          <Property Name="IDArticulo" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="DescArticulo" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="StockFisico" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="QPedida" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="QServida" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Precio" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto1" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto3" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto2" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Importe" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="UdValoracion" Type="int" Nullable="false" />
+          <Property Name="Factor" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Rotacion" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="Bloqueado" Type="bit" Nullable="false" />
+          <Property Name="Pendiente" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="IDAlmacen" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="AgrupAlbaran" Type="int" Nullable="false" />
+          <Property Name="EnvioCompleto" Type="bit" Nullable="false" />
+          <Property Name="CantidadConfirmada" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="DescCliente" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Confirmado" Type="bit" Nullable="false" />
+          <Property Name="QAlbaran" Type="numeric" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="FechaEntregaModificadoPedido" Type="datetime" />
+          <Property Name="Deposito" Type="bit" />
+          <Property Name="IDAlmacenEnvio" Type="nvarchar" MaxLength="10" />
+          <Property Name="AlmacenEnvioEsDeposito" Type="int" />
+          <Property Name="GestionStockPorLotes" Type="bit" Nullable="false" />
+          <Property Name="IDTipo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="NSerieObligatorio" Type="bit" Nullable="false" />
+          <Property Name="Expedible" Type="int" />
+          <Property Name="IDCentroGestion" Type="nvarchar" MaxLength="10" />
+          <Property Name="TienePedidoCompra2" Type="int" />
+          <Property Name="EsPedidoVenta3" Type="int" />
+          <Property Name="EmpresaGrupo" Type="bit" Nullable="false" />
+          <Property Name="EntregaProveedor" Type="bit" Nullable="false" />
+          <Property Name="IDUdInterna" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDUdInterna2" Type="nvarchar" MaxLength="10" />
+          <Property Name="GestionStock" Type="bit" Nullable="false" />
+          <Property Name="QInterna2" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="QServida2" Type="numeric" Precision="38" Scale="8" />
+          <Property Name="QPendiente2" Type="numeric" Precision="38" Scale="8" />
+          <Property Name="PendientexFactor" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="FactorConversion" Type="numeric" Precision="23" Scale="8" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="BloqueadoAlmacen" Type="int" />
+          <Property Name="KitVenta" Type="bit" Nullable="false" />
+          <Property Name="CodPostal" Type="nvarchar" MaxLength="25" />
+          <Property Name="Poblacion" Type="nvarchar" MaxLength="100" />
+          <Property Name="Provincia" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDTPV" Type="nvarchar" MaxLength="100" />
+          <Property Name="IDUDExpedicion" Type="nvarchar" MaxLength="10" />
+          <Property Name="IDClienteDistribuidor" Type="nvarchar" MaxLength="25" />
+          <Property Name="DescClienteDistribuidor" Type="nvarchar" MaxLength="300" />
+          <Property Name="FirmeEDI" Type="bit" Nullable="false" />
+          <Property Name="QEmbalaje" Type="numeric" Precision="23" Scale="8" />
+        </EntityType>
+        <EntityContainer Name="SolmicroERP6_PruebasSubModelStoreContainer">
+          <EntitySet Name="frmMntoExpediciones" EntityType="Self.frmMntoExpediciones" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [frmMntoExpediciones].[IDLineaPedido] AS [IDLineaPedido], 
+    [frmMntoExpediciones].[IDPedido] AS [IDPedido], 
+    [frmMntoExpediciones].[NPedido] AS [NPedido], 
+    [frmMntoExpediciones].[PedidoCliente] AS [PedidoCliente], 
+    [frmMntoExpediciones].[FechaEntrega] AS [FechaEntrega], 
+    [frmMntoExpediciones].[FechaPreparacion] AS [FechaPreparacion], 
+    [frmMntoExpediciones].[Año] AS [Año], 
+    [frmMntoExpediciones].[Mes] AS [Mes], 
+    [frmMntoExpediciones].[FechaAviso] AS [FechaAviso], 
+    [frmMntoExpediciones].[Semana] AS [Semana], 
+    [frmMntoExpediciones].[IDCliente] AS [IDCliente], 
+    [frmMntoExpediciones].[IDDireccionEnvio] AS [IDDireccionEnvio], 
+    [frmMntoExpediciones].[RefCliente] AS [RefCliente], 
+    [frmMntoExpediciones].[IDArticulo] AS [IDArticulo], 
+    [frmMntoExpediciones].[DescArticulo] AS [DescArticulo], 
+    [frmMntoExpediciones].[StockFisico] AS [StockFisico], 
+    [frmMntoExpediciones].[QPedida] AS [QPedida], 
+    [frmMntoExpediciones].[QServida] AS [QServida], 
+    [frmMntoExpediciones].[Precio] AS [Precio], 
+    [frmMntoExpediciones].[Dto1] AS [Dto1], 
+    [frmMntoExpediciones].[Dto3] AS [Dto3], 
+    [frmMntoExpediciones].[Dto2] AS [Dto2], 
+    [frmMntoExpediciones].[Importe] AS [Importe], 
+    [frmMntoExpediciones].[UdValoracion] AS [UdValoracion], 
+    [frmMntoExpediciones].[Factor] AS [Factor], 
+    [frmMntoExpediciones].[Rotacion] AS [Rotacion], 
+    [frmMntoExpediciones].[Bloqueado] AS [Bloqueado], 
+    [frmMntoExpediciones].[Pendiente] AS [Pendiente], 
+    [frmMntoExpediciones].[Estado] AS [Estado], 
+    [frmMntoExpediciones].[IDAlmacen] AS [IDAlmacen], 
+    [frmMntoExpediciones].[AgrupAlbaran] AS [AgrupAlbaran], 
+    [frmMntoExpediciones].[EnvioCompleto] AS [EnvioCompleto], 
+    [frmMntoExpediciones].[CantidadConfirmada] AS [CantidadConfirmada], 
+    [frmMntoExpediciones].[DescCliente] AS [DescCliente], 
+    [frmMntoExpediciones].[Confirmado] AS [Confirmado], 
+    [frmMntoExpediciones].[QAlbaran] AS [QAlbaran], 
+    [frmMntoExpediciones].[FechaEntregaModificadoPedido] AS [FechaEntregaModificadoPedido], 
+    [frmMntoExpediciones].[Deposito] AS [Deposito], 
+    [frmMntoExpediciones].[IDAlmacenEnvio] AS [IDAlmacenEnvio], 
+    [frmMntoExpediciones].[AlmacenEnvioEsDeposito] AS [AlmacenEnvioEsDeposito], 
+    [frmMntoExpediciones].[GestionStockPorLotes] AS [GestionStockPorLotes], 
+    [frmMntoExpediciones].[IDTipo] AS [IDTipo], 
+    [frmMntoExpediciones].[NSerieObligatorio] AS [NSerieObligatorio], 
+    [frmMntoExpediciones].[Expedible] AS [Expedible], 
+    [frmMntoExpediciones].[IDCentroGestion] AS [IDCentroGestion], 
+    [frmMntoExpediciones].[TienePedidoCompra2] AS [TienePedidoCompra2], 
+    [frmMntoExpediciones].[EsPedidoVenta3] AS [EsPedidoVenta3], 
+    [frmMntoExpediciones].[EmpresaGrupo] AS [EmpresaGrupo], 
+    [frmMntoExpediciones].[EntregaProveedor] AS [EntregaProveedor], 
+    [frmMntoExpediciones].[IDUdInterna] AS [IDUdInterna], 
+    [frmMntoExpediciones].[IDUdInterna2] AS [IDUdInterna2], 
+    [frmMntoExpediciones].[GestionStock] AS [GestionStock], 
+    [frmMntoExpediciones].[QInterna2] AS [QInterna2], 
+    [frmMntoExpediciones].[QServida2] AS [QServida2], 
+    [frmMntoExpediciones].[QPendiente2] AS [QPendiente2], 
+    [frmMntoExpediciones].[PendientexFactor] AS [PendientexFactor], 
+    [frmMntoExpediciones].[FactorConversion] AS [FactorConversion], 
+    [frmMntoExpediciones].[Activo] AS [Activo], 
+    [frmMntoExpediciones].[BloqueadoAlmacen] AS [BloqueadoAlmacen], 
+    [frmMntoExpediciones].[KitVenta] AS [KitVenta], 
+    [frmMntoExpediciones].[CodPostal] AS [CodPostal], 
+    [frmMntoExpediciones].[Poblacion] AS [Poblacion], 
+    [frmMntoExpediciones].[Provincia] AS [Provincia], 
+    [frmMntoExpediciones].[IDTPV] AS [IDTPV], 
+    [frmMntoExpediciones].[IDUDExpedicion] AS [IDUDExpedicion], 
+    [frmMntoExpediciones].[IDClienteDistribuidor] AS [IDClienteDistribuidor], 
+    [frmMntoExpediciones].[DescClienteDistribuidor] AS [DescClienteDistribuidor], 
+    [frmMntoExpediciones].[FirmeEDI] AS [FirmeEDI], 
+    [frmMntoExpediciones].[QEmbalaje] AS [QEmbalaje]
+    FROM [dbo].[frmMntoExpediciones] AS [frmMntoExpediciones]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SolmicroERP6_PruebasSubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="frmMntoExpedicione">
+          <Key>
+            <PropertyRef Name="IDLineaPedido" />
+            <PropertyRef Name="IDPedido" />
+            <PropertyRef Name="NPedido" />
+            <PropertyRef Name="FechaEntrega" />
+            <PropertyRef Name="IDCliente" />
+            <PropertyRef Name="IDArticulo" />
+            <PropertyRef Name="DescArticulo" />
+            <PropertyRef Name="QPedida" />
+            <PropertyRef Name="QServida" />
+            <PropertyRef Name="Precio" />
+            <PropertyRef Name="Dto1" />
+            <PropertyRef Name="Dto3" />
+            <PropertyRef Name="Dto2" />
+            <PropertyRef Name="Importe" />
+            <PropertyRef Name="UdValoracion" />
+            <PropertyRef Name="Factor" />
+            <PropertyRef Name="Bloqueado" />
+            <PropertyRef Name="Estado" />
+            <PropertyRef Name="IDAlmacen" />
+            <PropertyRef Name="AgrupAlbaran" />
+            <PropertyRef Name="EnvioCompleto" />
+            <PropertyRef Name="CantidadConfirmada" />
+            <PropertyRef Name="DescCliente" />
+            <PropertyRef Name="Confirmado" />
+            <PropertyRef Name="QAlbaran" />
+            <PropertyRef Name="GestionStockPorLotes" />
+            <PropertyRef Name="IDTipo" />
+            <PropertyRef Name="NSerieObligatorio" />
+            <PropertyRef Name="EmpresaGrupo" />
+            <PropertyRef Name="EntregaProveedor" />
+            <PropertyRef Name="IDUdInterna" />
+            <PropertyRef Name="GestionStock" />
+            <PropertyRef Name="Activo" />
+            <PropertyRef Name="KitVenta" />
+            <PropertyRef Name="FirmeEDI" />
+          </Key>
+          <Property Name="IDLineaPedido" Type="Int32" Nullable="false" />
+          <Property Name="IDPedido" Type="Int32" Nullable="false" />
+          <Property Name="NPedido" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PedidoCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaEntrega" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaPreparacion" Type="DateTime" Precision="3" />
+          <Property Name="Año" Type="Int32" />
+          <Property Name="Mes" Type="Int32" />
+          <Property Name="FechaAviso" Type="DateTime" Precision="3" />
+          <Property Name="Semana" Type="Int32" />
+          <Property Name="IDCliente" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDDireccionEnvio" Type="Int32" />
+          <Property Name="RefCliente" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IDArticulo" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DescArticulo" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StockFisico" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="QPedida" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="QServida" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Precio" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto1" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto3" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Dto2" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Importe" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="UdValoracion" Type="Int32" Nullable="false" />
+          <Property Name="Factor" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="Rotacion" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="Bloqueado" Type="Boolean" Nullable="false" />
+          <Property Name="Pendiente" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="Estado" Type="Int32" Nullable="false" />
+          <Property Name="IDAlmacen" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AgrupAlbaran" Type="Int32" Nullable="false" />
+          <Property Name="EnvioCompleto" Type="Boolean" Nullable="false" />
+          <Property Name="CantidadConfirmada" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="DescCliente" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Confirmado" Type="Boolean" Nullable="false" />
+          <Property Name="QAlbaran" Type="Decimal" Precision="23" Scale="8" Nullable="false" />
+          <Property Name="FechaEntregaModificadoPedido" Type="DateTime" Precision="3" />
+          <Property Name="Deposito" Type="Boolean" />
+          <Property Name="IDAlmacenEnvio" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="AlmacenEnvioEsDeposito" Type="Int32" />
+          <Property Name="GestionStockPorLotes" Type="Boolean" Nullable="false" />
+          <Property Name="IDTipo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NSerieObligatorio" Type="Boolean" Nullable="false" />
+          <Property Name="Expedible" Type="Int32" />
+          <Property Name="IDCentroGestion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TienePedidoCompra2" Type="Int32" />
+          <Property Name="EsPedidoVenta3" Type="Int32" />
+          <Property Name="EmpresaGrupo" Type="Boolean" Nullable="false" />
+          <Property Name="EntregaProveedor" Type="Boolean" Nullable="false" />
+          <Property Name="IDUdInterna" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDUdInterna2" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="GestionStock" Type="Boolean" Nullable="false" />
+          <Property Name="QInterna2" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="QServida2" Type="Decimal" Precision="38" Scale="8" />
+          <Property Name="QPendiente2" Type="Decimal" Precision="38" Scale="8" />
+          <Property Name="PendientexFactor" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="FactorConversion" Type="Decimal" Precision="23" Scale="8" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="BloqueadoAlmacen" Type="Int32" />
+          <Property Name="KitVenta" Type="Boolean" Nullable="false" />
+          <Property Name="CodPostal" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Poblacion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Provincia" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDTPV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IDUDExpedicion" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="IDClienteDistribuidor" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="DescClienteDistribuidor" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FirmeEDI" Type="Boolean" Nullable="false" />
+          <Property Name="QEmbalaje" Type="Decimal" Precision="23" Scale="8" />
+        </EntityType>
+        <EntityContainer Name="SolmicroERP6_PruebasSubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="frmMntoExpediciones" EntityType="Self.frmMntoExpedicione" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SolmicroERP6_PruebasSubModelStoreContainer" CdmEntityContainer="SolmicroERP6_PruebasSubEntities">
+          <EntitySetMapping Name="frmMntoExpediciones">
+            <EntityTypeMapping TypeName="SolmicroERP6_PruebasSubModel.frmMntoExpedicione">
+              <MappingFragment StoreEntitySet="frmMntoExpediciones">
+                <ScalarProperty Name="IDLineaPedido" ColumnName="IDLineaPedido" />
+                <ScalarProperty Name="IDPedido" ColumnName="IDPedido" />
+                <ScalarProperty Name="NPedido" ColumnName="NPedido" />
+                <ScalarProperty Name="PedidoCliente" ColumnName="PedidoCliente" />
+                <ScalarProperty Name="FechaEntrega" ColumnName="FechaEntrega" />
+                <ScalarProperty Name="FechaPreparacion" ColumnName="FechaPreparacion" />
+                <ScalarProperty Name="Año" ColumnName="Año" />
+                <ScalarProperty Name="Mes" ColumnName="Mes" />
+                <ScalarProperty Name="FechaAviso" ColumnName="FechaAviso" />
+                <ScalarProperty Name="Semana" ColumnName="Semana" />
+                <ScalarProperty Name="IDCliente" ColumnName="IDCliente" />
+                <ScalarProperty Name="IDDireccionEnvio" ColumnName="IDDireccionEnvio" />
+                <ScalarProperty Name="RefCliente" ColumnName="RefCliente" />
+                <ScalarProperty Name="IDArticulo" ColumnName="IDArticulo" />
+                <ScalarProperty Name="DescArticulo" ColumnName="DescArticulo" />
+                <ScalarProperty Name="StockFisico" ColumnName="StockFisico" />
+                <ScalarProperty Name="QPedida" ColumnName="QPedida" />
+                <ScalarProperty Name="QServida" ColumnName="QServida" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+                <ScalarProperty Name="Dto1" ColumnName="Dto1" />
+                <ScalarProperty Name="Dto3" ColumnName="Dto3" />
+                <ScalarProperty Name="Dto2" ColumnName="Dto2" />
+                <ScalarProperty Name="Importe" ColumnName="Importe" />
+                <ScalarProperty Name="UdValoracion" ColumnName="UdValoracion" />
+                <ScalarProperty Name="Factor" ColumnName="Factor" />
+                <ScalarProperty Name="Rotacion" ColumnName="Rotacion" />
+                <ScalarProperty Name="Bloqueado" ColumnName="Bloqueado" />
+                <ScalarProperty Name="Pendiente" ColumnName="Pendiente" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="IDAlmacen" ColumnName="IDAlmacen" />
+                <ScalarProperty Name="AgrupAlbaran" ColumnName="AgrupAlbaran" />
+                <ScalarProperty Name="EnvioCompleto" ColumnName="EnvioCompleto" />
+                <ScalarProperty Name="CantidadConfirmada" ColumnName="CantidadConfirmada" />
+                <ScalarProperty Name="DescCliente" ColumnName="DescCliente" />
+                <ScalarProperty Name="Confirmado" ColumnName="Confirmado" />
+                <ScalarProperty Name="QAlbaran" ColumnName="QAlbaran" />
+                <ScalarProperty Name="FechaEntregaModificadoPedido" ColumnName="FechaEntregaModificadoPedido" />
+                <ScalarProperty Name="Deposito" ColumnName="Deposito" />
+                <ScalarProperty Name="IDAlmacenEnvio" ColumnName="IDAlmacenEnvio" />
+                <ScalarProperty Name="AlmacenEnvioEsDeposito" ColumnName="AlmacenEnvioEsDeposito" />
+                <ScalarProperty Name="GestionStockPorLotes" ColumnName="GestionStockPorLotes" />
+                <ScalarProperty Name="IDTipo" ColumnName="IDTipo" />
+                <ScalarProperty Name="NSerieObligatorio" ColumnName="NSerieObligatorio" />
+                <ScalarProperty Name="Expedible" ColumnName="Expedible" />
+                <ScalarProperty Name="IDCentroGestion" ColumnName="IDCentroGestion" />
+                <ScalarProperty Name="TienePedidoCompra2" ColumnName="TienePedidoCompra2" />
+                <ScalarProperty Name="EsPedidoVenta3" ColumnName="EsPedidoVenta3" />
+                <ScalarProperty Name="EmpresaGrupo" ColumnName="EmpresaGrupo" />
+                <ScalarProperty Name="EntregaProveedor" ColumnName="EntregaProveedor" />
+                <ScalarProperty Name="IDUdInterna" ColumnName="IDUdInterna" />
+                <ScalarProperty Name="IDUdInterna2" ColumnName="IDUdInterna2" />
+                <ScalarProperty Name="GestionStock" ColumnName="GestionStock" />
+                <ScalarProperty Name="QInterna2" ColumnName="QInterna2" />
+                <ScalarProperty Name="QServida2" ColumnName="QServida2" />
+                <ScalarProperty Name="QPendiente2" ColumnName="QPendiente2" />
+                <ScalarProperty Name="PendientexFactor" ColumnName="PendientexFactor" />
+                <ScalarProperty Name="FactorConversion" ColumnName="FactorConversion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="BloqueadoAlmacen" ColumnName="BloqueadoAlmacen" />
+                <ScalarProperty Name="KitVenta" ColumnName="KitVenta" />
+                <ScalarProperty Name="CodPostal" ColumnName="CodPostal" />
+                <ScalarProperty Name="Poblacion" ColumnName="Poblacion" />
+                <ScalarProperty Name="Provincia" ColumnName="Provincia" />
+                <ScalarProperty Name="IDTPV" ColumnName="IDTPV" />
+                <ScalarProperty Name="IDUDExpedicion" ColumnName="IDUDExpedicion" />
+                <ScalarProperty Name="IDClienteDistribuidor" ColumnName="IDClienteDistribuidor" />
+                <ScalarProperty Name="DescClienteDistribuidor" ColumnName="DescClienteDistribuidor" />
+                <ScalarProperty Name="FirmeEDI" ColumnName="FirmeEDI" />
+                <ScalarProperty Name="QEmbalaje" ColumnName="QEmbalaje" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
