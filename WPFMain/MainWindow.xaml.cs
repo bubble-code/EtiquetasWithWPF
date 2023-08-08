@@ -80,14 +80,18 @@ namespace WPFMain
             if (sender is CheckBox checkBox && frmMntoExpedicioneDataGrid.SelectedItem is frmMntoExpedicione item)
             {               
                 selectedItems.Add(item);
-                item.Cantidad = 100;
+                item.Cantidad = (int)item.QPedida;
             }
            
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            if (sender is CheckBox checkBox && frmMntoExpedicioneDataGrid.SelectedItem is frmMntoExpedicione item)
+            {
+                selectedItems.Remove(item);
+                item.Cantidad = 0;
+            }
         }
     }
 }
