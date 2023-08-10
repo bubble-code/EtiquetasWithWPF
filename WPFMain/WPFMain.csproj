@@ -62,6 +62,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Theme\TextBoxTheme.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,6 +93,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Theme\AnoTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\ContadorTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\RD_DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\RepartoAutoLotes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TextBoxTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -115,6 +136,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="App.Config" />
     <None Include="EntityModel.edmx.diagram">
       <DependentUpon>EntityModel.edmx</DependentUpon>
@@ -127,6 +151,381 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Assets\Icons\about.png" />
+    <Resource Include="Assets\Icons\add.png" />
+    <Resource Include="Assets\Icons\add2.png" />
+    <Resource Include="Assets\Icons\address_book.png" />
+    <Resource Include="Assets\Icons\address_bookAdd.png" />
+    <Resource Include="Assets\Icons\alarmclock_run.png" />
+    <Resource Include="Assets\Icons\arrow_down.png" />
+    <Resource Include="Assets\Icons\arrow_down_blue.png" />
+    <Resource Include="Assets\Icons\arrow_down_green.png" />
+    <Resource Include="Assets\Icons\arrow_left.png" />
+    <Resource Include="Assets\Icons\arrow_left_blue.png" />
+    <Resource Include="Assets\Icons\arrow_left_green.png" />
+    <Resource Include="Assets\Icons\arrow_right.png" />
+    <Resource Include="Assets\Icons\arrow_right_blue.png" />
+    <Resource Include="Assets\Icons\arrow_right_green.png" />
+    <Resource Include="Assets\Icons\atom.png" />
+    <Resource Include="Assets\Icons\auction_hammer.png" />
+    <Resource Include="Assets\Icons\BarCode.png" />
+    <Resource Include="Assets\Icons\barrica.png" />
+    <Resource Include="Assets\Icons\book.png" />
+    <Resource Include="Assets\Icons\bookmarks.png" />
+    <Resource Include="Assets\Icons\bookmark_preferences.png" />
+    <Resource Include="Assets\Icons\books.png" />
+    <Resource Include="Assets\Icons\books_preferences.png" />
+    <Resource Include="Assets\Icons\book_add.png" />
+    <Resource Include="Assets\Icons\book_blue.png" />
+    <Resource Include="Assets\Icons\book_blue_add.png" />
+    <Resource Include="Assets\Icons\book_blue_delete.png" />
+    <Resource Include="Assets\Icons\book_blue_new.png" />
+    <Resource Include="Assets\Icons\book_blue_next.png" />
+    <Resource Include="Assets\Icons\book_blue_view.png" />
+    <Resource Include="Assets\Icons\book_delete.png" />
+    <Resource Include="Assets\Icons\book_new.png" />
+    <Resource Include="Assets\Icons\book_next.png" />
+    <Resource Include="Assets\Icons\book_open.png" />
+    <Resource Include="Assets\Icons\book_red.png" />
+    <Resource Include="Assets\Icons\book_view.png" />
+    <Resource Include="Assets\Icons\bottle.png" />
+    <Resource Include="Assets\Icons\box.png" />
+    <Resource Include="Assets\Icons\box_add.png" />
+    <Resource Include="Assets\Icons\box_delete.png" />
+    <Resource Include="Assets\Icons\box_into.png" />
+    <Resource Include="Assets\Icons\box_next.png" />
+    <Resource Include="Assets\Icons\box_preferences.png" />
+    <Resource Include="Assets\Icons\box_previous.png" />
+    <Resource Include="Assets\Icons\box_tall.png" />
+    <Resource Include="Assets\Icons\box_view.png" />
+    <Resource Include="Assets\Icons\box_white.png" />
+    <Resource Include="Assets\Icons\branch.png" />
+    <Resource Include="Assets\Icons\branch_element.png" />
+    <Resource Include="Assets\Icons\branch_element_new.png" />
+    <Resource Include="Assets\Icons\branch_find.png" />
+    <Resource Include="Assets\Icons\branch_view.png" />
+    <Resource Include="Assets\Icons\briefcase2_view.png" />
+    <Resource Include="Assets\Icons\briefcase_into.png" />
+    <Resource Include="Assets\Icons\briefcase_out.png" />
+    <Resource Include="Assets\Icons\brush1.png" />
+    <Resource Include="Assets\Icons\businessman.png" />
+    <Resource Include="Assets\Icons\businessman_find.png" />
+    <Resource Include="Assets\Icons\businessman_preferences.png" />
+    <Resource Include="Assets\Icons\businessman_view.png" />
+    <Resource Include="Assets\Icons\businessmen.png" />
+    <Resource Include="Assets\Icons\cabinet.png" />
+    <Resource Include="Assets\Icons\calculator.png" />
+    <Resource Include="Assets\Icons\calendar.png" />
+    <Resource Include="Assets\Icons\calendar_down.png" />
+    <Resource Include="Assets\Icons\calendar_preferences.png" />
+    <Resource Include="Assets\Icons\calendar_up.png" />
+    <Resource Include="Assets\Icons\cashier.png" />
+    <Resource Include="Assets\Icons\certificate.png" />
+    <Resource Include="Assets\Icons\certificate_information.png" />
+    <Resource Include="Assets\Icons\certificate_preferences.png" />
+    <Resource Include="Assets\Icons\certificate_view.png" />
+    <Resource Include="Assets\Icons\chart.png" />
+    <Resource Include="Assets\Icons\check.png" />
+    <Resource Include="Assets\Icons\check2.png" />
+    <Resource Include="Assets\Icons\checks.png" />
+    <Resource Include="Assets\Icons\chest.png" />
+    <Resource Include="Assets\Icons\chest_into.png" />
+    <Resource Include="Assets\Icons\chest_out.png" />
+    <Resource Include="Assets\Icons\clientes.png" />
+    <Resource Include="Assets\Icons\clipboard.png" />
+    <Resource Include="Assets\Icons\clipboard_empty.png" />
+    <Resource Include="Assets\Icons\clipboard_next_down.png" />
+    <Resource Include="Assets\Icons\clock.png" />
+    <Resource Include="Assets\Icons\clock_refresh.png" />
+    <Resource Include="Assets\Icons\clock_run.png" />
+    <Resource Include="Assets\Icons\colors.png" />
+    <Resource Include="Assets\Icons\column-chart.png" />
+    <Resource Include="Assets\Icons\column_add.png" />
+    <Resource Include="Assets\Icons\column_preferences.png" />
+    <Resource Include="Assets\Icons\component_delete.png" />
+    <Resource Include="Assets\Icons\component_green.png" />
+    <Resource Include="Assets\Icons\component_new.png" />
+    <Resource Include="Assets\Icons\component_red.png" />
+    <Resource Include="Assets\Icons\component_replace.png" />
+    <Resource Include="Assets\Icons\component_view.png" />
+    <Resource Include="Assets\Icons\component_yellow.png" />
+    <Resource Include="Assets\Icons\contract.png" />
+    <Resource Include="Assets\Icons\copy.png" />
+    <Resource Include="Assets\Icons\cpu_view.png" />
+    <Resource Include="Assets\Icons\creditcards.png" />
+    <Resource Include="Assets\Icons\cubes.png" />
+    <Resource Include="Assets\Icons\cubes_yellow.png" />
+    <Resource Include="Assets\Icons\cube_molecule.png" />
+    <Resource Include="Assets\Icons\cube_molecule_add.png" />
+    <Resource Include="Assets\Icons\cube_molecule_preferences.png" />
+    <Resource Include="Assets\Icons\cube_yellow.png" />
+    <Resource Include="Assets\Icons\cube_yellow_add.png" />
+    <Resource Include="Assets\Icons\cube_yellow_delete.png" />
+    <Resource Include="Assets\Icons\cube_yellow_new.png" />
+    <Resource Include="Assets\Icons\data_add.png" />
+    <Resource Include="Assets\Icons\data_copy.png" />
+    <Resource Include="Assets\Icons\data_delete.png" />
+    <Resource Include="Assets\Icons\data_disk.png" />
+    <Resource Include="Assets\Icons\data_edit.png" />
+    <Resource Include="Assets\Icons\data_error.png" />
+    <Resource Include="Assets\Icons\data_gear.png" />
+    <Resource Include="Assets\Icons\data_into.png" />
+    <Resource Include="Assets\Icons\data_new.png" />
+    <Resource Include="Assets\Icons\data_next.png" />
+    <Resource Include="Assets\Icons\data_ok.png" />
+    <Resource Include="Assets\Icons\data_out.png" />
+    <Resource Include="Assets\Icons\data_previous.png" />
+    <Resource Include="Assets\Icons\data_refresh.png" />
+    <Resource Include="Assets\Icons\data_replace.png" />
+    <Resource Include="Assets\Icons\data_view.png" />
+    <Resource Include="Assets\Icons\date-time.png" />
+    <Resource Include="Assets\Icons\date-time_preferences.png" />
+    <Resource Include="Assets\Icons\delete.png" />
+    <Resource Include="Assets\Icons\delete2.png" />
+    <Resource Include="Assets\Icons\disks.png" />
+    <Resource Include="Assets\Icons\disk_blue.png" />
+    <Resource Include="Assets\Icons\disk_blue_error.png" />
+    <Resource Include="Assets\Icons\disk_blue_ok.png" />
+    <Resource Include="Assets\Icons\disk_drive.png" />
+    <Resource Include="Assets\Icons\document.png" />
+    <Resource Include="Assets\Icons\documents.png" />
+    <Resource Include="Assets\Icons\document_add.png" />
+    <Resource Include="Assets\Icons\document_attachment.png" />
+    <Resource Include="Assets\Icons\document_check.png" />
+    <Resource Include="Assets\Icons\document_delete.png" />
+    <Resource Include="Assets\Icons\document_dirty.png" />
+    <Resource Include="Assets\Icons\document_edit.png" />
+    <Resource Include="Assets\Icons\document_error.png" />
+    <Resource Include="Assets\Icons\document_exchange.png" />
+    <Resource Include="Assets\Icons\document_find.png" />
+    <Resource Include="Assets\Icons\document_gear.png" />
+    <Resource Include="Assets\Icons\document_info.png" />
+    <Resource Include="Assets\Icons\document_into.png" />
+    <Resource Include="Assets\Icons\document_lock.png" />
+    <Resource Include="Assets\Icons\document_ok.png" />
+    <Resource Include="Assets\Icons\document_out.png" />
+    <Resource Include="Assets\Icons\document_text.png" />
+    <Resource Include="Assets\Icons\document_time.png" />
+    <Resource Include="Assets\Icons\document_view.png" />
+    <Resource Include="Assets\Icons\dot-chart.png" />
+    <Resource Include="Assets\Icons\down_minus.png" />
+    <Resource Include="Assets\Icons\drink_red.png" />
+    <Resource Include="Assets\Icons\drink_yellow.png" />
+    <Resource Include="Assets\Icons\dude4.png" />
+    <Resource Include="Assets\Icons\earth_add.png" />
+    <Resource Include="Assets\Icons\earth_find.png" />
+    <Resource Include="Assets\Icons\earth_view.png" />
+    <Resource Include="Assets\Icons\edit.png" />
+    <Resource Include="Assets\Icons\elements_selection.png" />
+    <Resource Include="Assets\Icons\element_copy.png" />
+    <Resource Include="Assets\Icons\element_delete.png" />
+    <Resource Include="Assets\Icons\element_down.png" />
+    <Resource Include="Assets\Icons\element_find.png" />
+    <Resource Include="Assets\Icons\element_into.png" />
+    <Resource Include="Assets\Icons\element_into_input.png" />
+    <Resource Include="Assets\Icons\element_new_after.png" />
+    <Resource Include="Assets\Icons\element_preferences.png" />
+    <Resource Include="Assets\Icons\element_previous.png" />
+    <Resource Include="Assets\Icons\element_replace.png" />
+    <Resource Include="Assets\Icons\element_run.png" />
+    <Resource Include="Assets\Icons\element_up.png" />
+    <Resource Include="Assets\Icons\environment_ok.png" />
+    <Resource Include="Assets\Icons\error.png" />
+    <Resource Include="Assets\Icons\export1.png" />
+    <Resource Include="Assets\Icons\export2.png" />
+    <Resource Include="Assets\Icons\factory.png" />
+    <Resource Include="Assets\Icons\FavramFondosPantalla.jpg" />
+    <Resource Include="Assets\Icons\film.png" />
+    <Resource Include="Assets\Icons\find.png" />
+    <Resource Include="Assets\Icons\find_again.png" />
+    <Resource Include="Assets\Icons\find_text.png" />
+    <Resource Include="Assets\Icons\first_aid.png" />
+    <Resource Include="Assets\Icons\folder.png" />
+    <Resource Include="Assets\Icons\folders.png" />
+    <Resource Include="Assets\Icons\folder_add.png" />
+    <Resource Include="Assets\Icons\folder_delete.png" />
+    <Resource Include="Assets\Icons\folder_document.png" />
+    <Resource Include="Assets\Icons\folder_edit.png" />
+    <Resource Include="Assets\Icons\folder_information.png" />
+    <Resource Include="Assets\Icons\folder_movie.png" />
+    <Resource Include="Assets\Icons\folder_preferences.png" />
+    <Resource Include="Assets\Icons\folder_refresh.png" />
+    <Resource Include="Assets\Icons\folder_view.png" />
+    <Resource Include="Assets\Icons\forbidden.png" />
+    <Resource Include="Assets\Icons\form_blue.png" />
+    <Resource Include="Assets\Icons\form_green.png" />
+    <Resource Include="Assets\Icons\form_yellow.png" />
+    <Resource Include="Assets\Icons\funnel_delete.png" />
+    <Resource Include="Assets\Icons\garbage.png" />
+    <Resource Include="Assets\Icons\garbage_full.png" />
+    <Resource Include="Assets\Icons\gear.png" />
+    <Resource Include="Assets\Icons\gears.png" />
+    <Resource Include="Assets\Icons\gears_run.png" />
+    <Resource Include="Assets\Icons\gear_add.png" />
+    <Resource Include="Assets\Icons\gear_delete.png" />
+    <Resource Include="Assets\Icons\gear_preferences.png" />
+    <Resource Include="Assets\Icons\gear_refresh.png" />
+    <Resource Include="Assets\Icons\gear_replace.png" />
+    <Resource Include="Assets\Icons\gear_run.png" />
+    <Resource Include="Assets\Icons\gear_time.png" />
+    <Resource Include="Assets\Icons\graphics-tablet.png" />
+    <Resource Include="Assets\Icons\help.png" />
+    <Resource Include="Assets\Icons\help2.png" />
+    <Resource Include="Assets\Icons\help_earth.png" />
+    <Resource Include="Assets\Icons\houses.png" />
+    <Resource Include="Assets\Icons\icecube.png" />
+    <Resource Include="Assets\Icons\id_card.png" />
+    <Resource Include="Assets\Icons\id_cards.png" />
+    <Resource Include="Assets\Icons\id_card_add.png" />
+    <Resource Include="Assets\Icons\id_card_delete.png" />
+    <Resource Include="Assets\Icons\id_card_warning.png" />
+    <Resource Include="Assets\Icons\import1.png" />
+    <Resource Include="Assets\Icons\inbox_into.png" />
+    <Resource Include="Assets\Icons\index.png" />
+    <Resource Include="Assets\Icons\index_add.png" />
+    <Resource Include="Assets\Icons\index_down.png" />
+    <Resource Include="Assets\Icons\index_new.png" />
+    <Resource Include="Assets\Icons\index_replace.png" />
+    <Resource Include="Assets\Icons\index_up.png" />
+    <Resource Include="Assets\Icons\key1.png" />
+    <Resource Include="Assets\Icons\lock.png" />
+    <Resource Include="Assets\Icons\lock_information.png" />
+    <Resource Include="Assets\Icons\lock_open.png" />
+    <Resource Include="Assets\Icons\lock_preferences.png" />
+    <Resource Include="Assets\Icons\mail.png" />
+    <Resource Include="Assets\Icons\mail2_view.png" />
+    <Resource Include="Assets\Icons\mailbox_full.png" />
+    <Resource Include="Assets\Icons\mail_attachment.png" />
+    <Resource Include="Assets\Icons\mail_earth.png" />
+    <Resource Include="Assets\Icons\mail_forward.png" />
+    <Resource Include="Assets\Icons\mail_out.png" />
+    <Resource Include="Assets\Icons\mail_server.png" />
+    <Resource Include="Assets\Icons\mail_view.png" />
+    <Resource Include="Assets\Icons\media_beginning.png" />
+    <Resource Include="Assets\Icons\media_end.png" />
+    <Resource Include="Assets\Icons\media_play.png" />
+    <Resource Include="Assets\Icons\media_play_green.png" />
+    <Resource Include="Assets\Icons\media_step_back.png" />
+    <Resource Include="Assets\Icons\media_step_forward.png" />
+    <Resource Include="Assets\Icons\message_edit.png" />
+    <Resource Include="Assets\Icons\money.png" />
+    <Resource Include="Assets\Icons\money2.png" />
+    <Resource Include="Assets\Icons\moneybag_euro.png" />
+    <Resource Include="Assets\Icons\monitor.png" />
+    <Resource Include="Assets\Icons\monitor2.png" />
+    <Resource Include="Assets\Icons\monitor_rgb.png" />
+    <Resource Include="Assets\Icons\navigate_down2.png" />
+    <Resource Include="Assets\Icons\navigate_left.png" />
+    <Resource Include="Assets\Icons\navigate_left2.png" />
+    <Resource Include="Assets\Icons\navigate_right.png" />
+    <Resource Include="Assets\Icons\navigate_right2.png" />
+    <Resource Include="Assets\Icons\navigate_up2.png" />
+    <Resource Include="Assets\Icons\nav_down.png" />
+    <Resource Include="Assets\Icons\nav_down_green.png" />
+    <Resource Include="Assets\Icons\nav_down_red.png" />
+    <Resource Include="Assets\Icons\nav_up.png" />
+    <Resource Include="Assets\Icons\nav_up_blue.png" />
+    <Resource Include="Assets\Icons\nav_up_green.png" />
+    <Resource Include="Assets\Icons\nav_up_red.png" />
+    <Resource Include="Assets\Icons\note.png" />
+    <Resource Include="Assets\Icons\note_add.png" />
+    <Resource Include="Assets\Icons\note_delete.png" />
+    <Resource Include="Assets\Icons\note_edit.png" />
+    <Resource Include="Assets\Icons\note_find.png" />
+    <Resource Include="Assets\Icons\note_pinned.png" />
+    <Resource Include="Assets\Icons\nut_and_bolt.png" />
+    <Resource Include="Assets\Icons\outbox.png" />
+    <Resource Include="Assets\Icons\package.png" />
+    <Resource Include="Assets\Icons\package_find.png" />
+    <Resource Include="Assets\Icons\package_preferences.png" />
+    <Resource Include="Assets\Icons\package_view.png" />
+    <Resource Include="Assets\Icons\palette.png" />
+    <Resource Include="Assets\Icons\pda2_preferences.png" />
+    <Resource Include="Assets\Icons\pen.png" />
+    <Resource Include="Assets\Icons\pen_blue.png" />
+    <Resource Include="Assets\Icons\percent.png" />
+    <Resource Include="Assets\Icons\photo_scenery.png" />
+    <Resource Include="Assets\Icons\pin_blue.png" />
+    <Resource Include="Assets\Icons\pin_green.png" />
+    <Resource Include="Assets\Icons\pin_yellow.png" />
+    <Resource Include="Assets\Icons\potion.png" />
+    <Resource Include="Assets\Icons\potion_blue.png" />
+    <Resource Include="Assets\Icons\potion_red.png" />
+    <Resource Include="Assets\Icons\press.png" />
+    <Resource Include="Assets\Icons\printer.png" />
+    <Resource Include="Assets\Icons\printer2.png" />
+    <Resource Include="Assets\Icons\printer_information.png" />
+    <Resource Include="Assets\Icons\proveedores.png" />
+    <Resource Include="Assets\Icons\question_and_answer.png" />
+    <Resource Include="Assets\Icons\recycle.png" />
+    <Resource Include="Assets\Icons\refresh.png" />
+    <Resource Include="Assets\Icons\registry.png" />
+    <Resource Include="Assets\Icons\replace.png" />
+    <Resource Include="Assets\Icons\replace2.png" />
+    <Resource Include="Assets\Icons\row.png" />
+    <Resource Include="Assets\Icons\row_add_before.png" />
+    <Resource Include="Assets\Icons\row_preferences.png" />
+    <Resource Include="Assets\Icons\scroll_add.png" />
+    <Resource Include="Assets\Icons\scroll_delete.png" />
+    <Resource Include="Assets\Icons\scroll_information.png" />
+    <Resource Include="Assets\Icons\scroll_ok.png" />
+    <Resource Include="Assets\Icons\scroll_view.png" />
+    <Resource Include="Assets\Icons\scroll_warning.png" />
+    <Resource Include="Assets\Icons\selection.png" />
+    <Resource Include="Assets\Icons\selection_delete.png" />
+    <Resource Include="Assets\Icons\server_client_exchange.png" />
+    <Resource Include="Assets\Icons\server_document.png" />
+    <Resource Include="Assets\Icons\server_from_client.png" />
+    <Resource Include="Assets\Icons\server_id_card.png" />
+    <Resource Include="Assets\Icons\server_to_client.png" />
+    <Resource Include="Assets\Icons\shoppingbasket.png" />
+    <Resource Include="Assets\Icons\shoppingcart.png" />
+    <Resource Include="Assets\Icons\shoppingcart_full.png" />
+    <Resource Include="Assets\Icons\sort_ascending.png" />
+    <Resource Include="Assets\Icons\sort_descending.png" />
+    <Resource Include="Assets\Icons\stopwatch_reset.png" />
+    <Resource Include="Assets\Icons\stopwatch_run.png" />
+    <Resource Include="Assets\Icons\table.png" />
+    <Resource Include="Assets\Icons\tables.png" />
+    <Resource Include="Assets\Icons\table_sql_check.png" />
+    <Resource Include="Assets\Icons\table_view.png" />
+    <Resource Include="Assets\Icons\text.png" />
+    <Resource Include="Assets\Icons\text_code.png" />
+    <Resource Include="Assets\Icons\text_code_c.png" />
+    <Resource Include="Assets\Icons\text_code_colored.png" />
+    <Resource Include="Assets\Icons\text_italics.png" />
+    <Resource Include="Assets\Icons\text_ok.png" />
+    <Resource Include="Assets\Icons\text_tree.png" />
+    <Resource Include="Assets\Icons\text_view.png" />
+    <Resource Include="Assets\Icons\trafficlight_green.png" />
+    <Resource Include="Assets\Icons\trafficlight_off.png" />
+    <Resource Include="Assets\Icons\trafficlight_red.png" />
+    <Resource Include="Assets\Icons\trafficlight_yellow.png" />
+    <Resource Include="Assets\Icons\undo.png" />
+    <Resource Include="Assets\Icons\unknown.png" />
+    <Resource Include="Assets\Icons\unthemed_no_image.png" />
+    <Resource Include="Assets\Icons\unthemed_no_image_big.png" />
+    <Resource Include="Assets\Icons\user1.png" />
+    <Resource Include="Assets\Icons\user1_add.png" />
+    <Resource Include="Assets\Icons\user1_earth.png" />
+    <Resource Include="Assets\Icons\user1_find.png" />
+    <Resource Include="Assets\Icons\user1_information.png" />
+    <Resource Include="Assets\Icons\users1_preferences.png" />
+    <Resource Include="Assets\Icons\users3_preferences.png" />
+    <Resource Include="Assets\Icons\users4.png" />
+    <Resource Include="Assets\Icons\users_back.png" />
+    <Resource Include="Assets\Icons\users_family.png" />
+    <Resource Include="Assets\Icons\user_headset.png" />
+    <Resource Include="Assets\Icons\view.png" />
+    <Resource Include="Assets\Icons\view_next.png" />
+    <Resource Include="Assets\Icons\warning.png" />
+    <Resource Include="Assets\Icons\war_into.png" />
+    <Resource Include="Assets\Icons\window.png" />
+    <Resource Include="Assets\Icons\window_application.png" />
+    <Resource Include="Assets\Icons\window_split_hor.png" />
+    <Resource Include="Assets\Icons\window_split_ver.png" />
+    <Resource Include="Assets\Icons\workplace2.png" />
+    <Resource Include="Assets\Icons\workstation2.png" />
     <Content Include="EntityModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
@@ -141,5 +540,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

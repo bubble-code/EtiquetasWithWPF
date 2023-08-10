@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -20,12 +21,19 @@ namespace WPFMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        private ObservableCollection<frmMntoExpedicione> selectedItems = new ObservableCollection<frmMntoExpedicione>();
-
+        private HashSet<frmMntoExpedicione> selectedItems = new HashSet<frmMntoExpedicione>();
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            //selectedItems.CollectionChanged += SelectedItems_CollectionChanged;
+           
         }
+
+        //private void SelectedItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        //{
+        //    count.Content = selectedItems.Count;
+        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -77,17 +85,43 @@ namespace WPFMain
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            if (sender is CheckBox checkBox && frmMntoExpedicioneDataGrid.SelectedItem is frmMntoExpedicione item)
+            if (sender is CheckBox checkBox && checkBox.DataContext is frmMntoExpedicione item)
             {               
                 selectedItems.Add(item);
-                item.Cantidad = 100;
+                count.Content = selectedItems.Count;
+                frmMntoExpedicioneDataGrid.UpdateLayout();
             }
            
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            if (sender is CheckBox checkBox && checkBox.DataContext is frmMntoExpedicione item)
+            {
+                selectedItems.Remove(item);
+                count.Content = selectedItems.Count;
+                frmMntoExpedicioneDataGrid.UpdateLayout();
+            }
         }
+
+
+        private void Image_Mouse(object sender, MouseButtonEventArgs e)
+        {
+            DatePicker datePicker = FindResource("DatePicker") as DatePicker;
+            TextBox fechaTextBox = FindResource("Fecha") as TextBox;
+
+            if (datePicker != null && fechaTextBox != null)
+            {
+                datePicker.SelectedDate = DateTime.Today; // Puedes establecer la fecha actual por defecto
+                datePicker.Visibility = Visibility.Visible;
+                datePicker.Focus();
+                datePicker.SelectedDateChanged += (s, args) =>
+                {
+                    fechaTextBox.Text = datePicker.SelectedDate?.ToString("dd/MM/yyyy");
+                    datePicker.Visibility = Visibility.Collapsed;
+                };
+            }
+        }
+
     }
 }

@@ -13,6 +13,7 @@
         <CollectionViewSource x:Key="frmMntoExpedicioneViewSource3" d:DesignSource="{d:DesignInstance {x:Type local:frmMntoExpedicione}}"/>
         <CollectionViewSource x:Key="frmMntoExpedicioneViewSource4" d:DesignSource="{d:DesignInstance {x:Type local:frmMntoExpedicione}}"/>
         <CollectionViewSource x:Key="frmMntoExpedicioneViewSource5" d:DesignSource="{d:DesignInstance {x:Type local:frmMntoExpedicione}}"/>
+
     </Window.Resources>
     <Grid DataContext="{StaticResource frmMntoExpedicioneViewSource}" >
         <Grid.RowDefinitions>
@@ -20,16 +21,59 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Refrech" HorizontalAlignment="Left" Height="33" Margin="10,63,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="110" Click="Button_Click" />
-        <StackPanel x:Name="criterioBusquedaPanel" HorizontalAlignment="Left" 
-                    Height="108" Margin="138,63,0,0" Grid.RowSpan="3"
-                    VerticalAlignment="Top" Width="813"
-                    
-                    >
-        </StackPanel>
-        <DataGrid x:Name="frmMntoExpedicioneDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding Source={StaticResource frmMntoExpedicioneViewSource3}}" RowDetailsVisibilityMode="VisibleWhenSelected" Margin="10,201,165,92" Grid.Row="2">
+
+        <!-- ToolBar -->
+        <DockPanel>
+            <ToolBar Background="#FF353434">
+                <Button Margin="0,0,8,0"  >
+                    <Image Source="/Assets/Icons/check.png" Height="23" Width="23" />
+                </Button>
+                <Button>
+                    <Image Source="/Assets/Icons/checks.png" Height="23" Width="23" />
+                </Button>
+                <Button  Click="Button_Click">
+                    <Image Source="/Assets/Icons/check2.png" Height="23" Width="23"/>
+                </Button>
+                <Button >
+                    <Image Source="/Assets/Icons/note_find.png" Height="23" Width="23"/>
+                </Button>
+            </ToolBar>
+        </DockPanel>
+
+        <!-- Aqui -->
+
+        <DataGrid x:Name="frmMntoExpedicioneDataGrid" 
+                  AutoGenerateColumns="False" 
+                  EnableRowVirtualization="True" 
+                  ItemsSource="{Binding Source={StaticResource frmMntoExpedicioneViewSource3}}"
+                  RowDetailsVisibilityMode="VisibleWhenSelected" 
+                  Margin="10,51,165,92" 
+                  Grid.Row="2"
+                 Style="{StaticResource CustomDataGrid}" >
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Style.Setters>
+                        <Setter Property="Foreground" Value="Blue" />
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style.Setters>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <!--<DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.RowStyle>-->
+
+            <!--<DataGrid.CellStyle>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.CellStyle>-->
+
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn >
+                <DataGridCheckBoxColumn Binding="{Binding Selected,UpdateSourceTrigger=PropertyChanged}">
                     <DataGridCheckBoxColumn.ElementStyle>
                         <Style TargetType="CheckBox">
                             <EventSetter Event="Checked" Handler="CheckBox_Checked"/>
@@ -38,64 +82,27 @@
                     </DataGridCheckBoxColumn.ElementStyle>
                 </DataGridCheckBoxColumn>
 
-                <DataGridTemplateColumn x:Name="Cantidad" Header="Cantidad" Width="Auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Text="{Binding Cantidad,UpdateSourceTrigger=PropertyChanged}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="Cantidad" Binding="{Binding Cantidad,UpdateSourceTrigger=PropertyChanged}" Header="Cantidad" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="CanInterna" Binding="{Binding CanInterna,UpdateSourceTrigger=PropertyChanged}" Header="QInterna" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="fechaEntregaModificadoPedidoColumn"
+                                    Binding="{Binding FechaEntregaModificadoPedido, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true, StringFormat={}{0:dd/MM/yyyy}}" 
+                                    Header="F. Entrega" Width="SizeToHeader"/>
 
-                <DataGridTemplateColumn x:Name="Cantidad_Int" Header="Cantidad Int" Width="Auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox DataContext="{Binding CantidadInt}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn x:Name="fechaEntregaModificadoPedidoColumn" Header="Fecha Entrega Modificado Pedido" Width="SizeToHeader">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <DatePicker SelectedDate="{Binding FechaEntregaModificadoPedido, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTextColumn x:Name="NPedido" Binding="{Binding NPedido}" Header="NPedido" Width="SizeToHeader"/>
+                <DataGridTextColumn x:Name="NPedido" Binding="{Binding NPedido}" Header="NPedido" Width="SizeToHeader" MinWidth="140"/>
 
                 <DataGridTextColumn x:Name="iDClienteColumn" Binding="{Binding IDCliente}" Header="IDCliente" Width="SizeToHeader"/>
-
-                <DataGridTemplateColumn x:Name="iDArticuloColumn" Header="IDArticulo" Width="Auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding IDArticulo}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn x:Name="DescArti" Header="Desc Artic" Width="Auto">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Label Content="{Binding DescArticulo}"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
+                <DataGridTextColumn x:Name="iDArticuloColumn" Binding="{Binding IDArticulo}" Header="IDArticulo" Width="SizeToHeader" MinWidth="200"/>
+                <DataGridTextColumn x:Name="DescArti" Binding="{Binding DescArticulo}" Header="Desc Artic" Width="SizeToHeader" MinWidth="300"/>
                 <DataGridTextColumn x:Name="QPedida" Binding="{Binding QPedida, StringFormat={}{0:0}}" 
                                     Header="Cant. Pedida" Width="SizeToHeader" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="QServida" Binding="{Binding QServida, StringFormat={}{0:0}}" 
                                     Header="Cant.Servida" Width="SizeToHeader" IsReadOnly="True"/>
-
                 <DataGridTextColumn x:Name="FechaEntrega" Binding="{Binding FechaEntrega, StringFormat={}{0:dd/MM/yyyy}}" 
                                     Header="Fecha Entrega" Width="SizeToHeader" IsReadOnly="True"/>
-
                 <DataGridTextColumn x:Name="FechaPreparacion" Binding="{Binding FechaPreparacion, StringFormat={}{0:dd/MM/yyyy}}" 
                                     Header="Fecha Prepa" Width="SizeToHeader" IsReadOnly="True"/>
-
-                <DataGridTextColumn x:Name="DescCliente" Binding="{Binding DescCliente}" 
+                <DataGridTextColumn x:Name="DescCliente" Binding="{Binding DescCliente}"  MinWidth="280"
                                     Header="Desc Cliente" Width="SizeToHeader" IsReadOnly="True"/>
-
                 <DataGridTextColumn x:Name="Stock" Binding="{Binding StockFisico, StringFormat={}{0:0}}" Header="StockFisico" Width="SizeToHeader" IsReadOnly="True"/>
                 <DataGridTextColumn x:Name="Ubicacion" Binding="{Binding Ubicacion}" 
                                     Header="Ubicacion" Width="SizeToHeader" IsReadOnly="True"/>
@@ -103,5 +110,30 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="sdsdsds" HorizontalAlignment="Left" Height="32" Margin="196,547,0,0"  VerticalAlignment="Top" Width="142" x:Name="count" Grid.Row="2"/>
+        <TextBox HorizontalAlignment="Left" Height="25"
+                 Margin="9,10,0,0" Grid.Row="2" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="250" 
+                 Style="{StaticResource FechaAlbaran}"
+                 />
+        <TextBox HorizontalAlignment="Left"
+                 Margin="314,13,0,0" Grid.Row="2"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="248"
+                 Style="{StaticResource ContadorTextBox}"
+                 />
+        <TextBox HorizontalAlignment="Left" 
+                 Margin="583,13,0,0" Grid.Row="2" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" Width="270"
+                 Style="{StaticResource RepartoAutoLotes}"
+                 />
+        <TextBox HorizontalAlignment="Left" 
+            Margin="889,12,0,0" Grid.Row="2" 
+            TextWrapping="Wrap"
+            VerticalAlignment="Top" Width="224"
+            Style="{StaticResource AnoTextBox}"
+                 />
     </Grid>
 </Window>

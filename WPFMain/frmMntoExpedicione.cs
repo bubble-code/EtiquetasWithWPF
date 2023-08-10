@@ -13,31 +13,70 @@ namespace WPFMain
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class frmMntoExpedicione: INotifyPropertyChanged
+    public partial class frmMntoExpedicione : INotifyPropertyChanged
     {
         private int _cantidad;
         private int _cantInterna;
         private bool _select;
+        private int _itemsCount;
         public bool Selected
         {
             get { return _select; }
             set
             {
-                Cantidad = 120;
                 _select = value;
+                if (value == true)
+                {
+                    Cantidad = (int)QPedida;
+                    CanInterna = (int)QPedida;
+                }
+                else
+                {
+
+                    Cantidad = 0;
+                    CanInterna = 0;
+                }
+                OnPropertyChanged(nameof(Selected));
+
             }
         }
-        public int Cantidad {
-            get { return _cantidad; } 
-            set { 
+        public int Cantidad
+        {
+            get { return _cantidad; }
+            set
+            {
                 if (_cantidad != value)
                 {
-                _cantidad = value; 
-                OnPropertyChanged(nameof(Cantidad));
+                    _cantidad = value;
+                    CanInterna = value;
+                    OnPropertyChanged(nameof(Cantidad));
                 }
             }
         }
-        public int CanInterna { get { return _cantInterna; } set { _cantInterna = value; } }
+        public int CanInterna
+        {
+            get { return _cantInterna; }
+            set
+            {
+                if (_cantInterna != value)
+                {
+                    _cantInterna = value;
+                    OnPropertyChanged(nameof(CanInterna));
+                }
+            }
+        }
+        public int ItemsCount
+        {
+            get { return _itemsCount; }
+            set
+            {
+                if (_itemsCount != value)
+                {
+                    _itemsCount = value;
+                    OnPropertyChanged(nameof(ItemsCount));
+                }
+            }
+        }
         public int IDLineaPedido { get; set; }
         public int IDPedido { get; set; }
         public string NPedido { get; set; }
@@ -110,7 +149,7 @@ namespace WPFMain
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged( string propertyName )
+        protected void OnPropertyChanged(string propertyName)
         {
 
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
