@@ -7,6 +7,10 @@
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/RD_DataGrid.xaml" />
+                <ResourceDictionary Source="Theme/TextBoxTheme.xaml" />
+                <ResourceDictionary Source="Theme/ContadorTextBox.xaml" />
+                <ResourceDictionary Source="Theme/RepartoAutoLotes.xaml" />
+                <ResourceDictionary Source="Theme/AnoTextBox.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

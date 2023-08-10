@@ -18,13 +18,26 @@ namespace WPFMain
         private int _cantidad;
         private int _cantInterna;
         private bool _select;
+        private int _itemsCount;
         public bool Selected
         {
             get { return _select; }
             set
             {
-                Cantidad = 120;
                 _select = value;
+                if (value == true)
+                {
+                    Cantidad = (int)QPedida;
+                    CanInterna = (int)QPedida;
+                }
+                else
+                {
+
+                    Cantidad = 0;
+                    CanInterna = 0;
+                }
+                OnPropertyChanged(nameof(Selected));
+
             }
         }
         public int Cantidad
@@ -49,6 +62,18 @@ namespace WPFMain
                 {
                     _cantInterna = value;
                     OnPropertyChanged(nameof(CanInterna));
+                }
+            }
+        }
+        public int ItemsCount
+        {
+            get { return _itemsCount; }
+            set
+            {
+                if (_itemsCount != value)
+                {
+                    _itemsCount = value;
+                    OnPropertyChanged(nameof(ItemsCount));
                 }
             }
         }

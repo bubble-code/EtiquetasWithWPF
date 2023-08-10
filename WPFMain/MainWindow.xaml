@@ -21,19 +21,33 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Button Content="Refrech" HorizontalAlignment="Left" Height="33" Margin="10,63,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="110" Click="Button_Click" />
-        <StackPanel x:Name="criterioBusquedaPanel" HorizontalAlignment="Left" 
-                    Height="108" Margin="138,63,0,0" Grid.RowSpan="3"
-                    VerticalAlignment="Top" Width="813"
-                    
-                    >
-        </StackPanel>
+
+        <!-- ToolBar -->
+        <DockPanel>
+            <ToolBar Background="#FF353434">
+                <Button Margin="0,0,8,0"  >
+                    <Image Source="/Assets/Icons/check.png" Height="23" Width="23" />
+                </Button>
+                <Button>
+                    <Image Source="/Assets/Icons/checks.png" Height="23" Width="23" />
+                </Button>
+                <Button  Click="Button_Click">
+                    <Image Source="/Assets/Icons/check2.png" Height="23" Width="23"/>
+                </Button>
+                <Button >
+                    <Image Source="/Assets/Icons/note_find.png" Height="23" Width="23"/>
+                </Button>
+            </ToolBar>
+        </DockPanel>
+
+        <!-- Aqui -->
+
         <DataGrid x:Name="frmMntoExpedicioneDataGrid" 
                   AutoGenerateColumns="False" 
                   EnableRowVirtualization="True" 
                   ItemsSource="{Binding Source={StaticResource frmMntoExpedicioneViewSource3}}"
                   RowDetailsVisibilityMode="VisibleWhenSelected" 
-                  Margin="10,201,165,92" 
+                  Margin="10,51,165,92" 
                   Grid.Row="2"
                  Style="{StaticResource CustomDataGrid}" >
             <DataGrid.ColumnHeaderStyle>
@@ -59,7 +73,7 @@
             </DataGrid.CellStyle>-->
 
             <DataGrid.Columns>
-                <DataGridCheckBoxColumn >
+                <DataGridCheckBoxColumn Binding="{Binding Selected,UpdateSourceTrigger=PropertyChanged}">
                     <DataGridCheckBoxColumn.ElementStyle>
                         <Style TargetType="CheckBox">
                             <EventSetter Event="Checked" Handler="CheckBox_Checked"/>
@@ -67,7 +81,7 @@
                         </Style>
                     </DataGridCheckBoxColumn.ElementStyle>
                 </DataGridCheckBoxColumn>
-                
+
                 <DataGridTextColumn x:Name="Cantidad" Binding="{Binding Cantidad,UpdateSourceTrigger=PropertyChanged}" Header="Cantidad" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="CanInterna" Binding="{Binding CanInterna,UpdateSourceTrigger=PropertyChanged}" Header="QInterna" Width="SizeToHeader"/>
                 <DataGridTextColumn x:Name="fechaEntregaModificadoPedidoColumn"
@@ -96,5 +110,30 @@
 
             </DataGrid.Columns>
         </DataGrid>
+        <Label Content="sdsdsds" HorizontalAlignment="Left" Height="32" Margin="196,547,0,0"  VerticalAlignment="Top" Width="142" x:Name="count" Grid.Row="2"/>
+        <TextBox HorizontalAlignment="Left" Height="25"
+                 Margin="9,10,0,0" Grid.Row="2" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="250" 
+                 Style="{StaticResource FechaAlbaran}"
+                 />
+        <TextBox HorizontalAlignment="Left"
+                 Margin="314,13,0,0" Grid.Row="2"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="248"
+                 Style="{StaticResource ContadorTextBox}"
+                 />
+        <TextBox HorizontalAlignment="Left" 
+                 Margin="583,13,0,0" Grid.Row="2" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" Width="270"
+                 Style="{StaticResource RepartoAutoLotes}"
+                 />
+        <TextBox HorizontalAlignment="Left" 
+            Margin="889,12,0,0" Grid.Row="2" 
+            TextWrapping="Wrap"
+            VerticalAlignment="Top" Width="224"
+            Style="{StaticResource AnoTextBox}"
+                 />
     </Grid>
 </Window>
