@@ -22,7 +22,7 @@ namespace WPFMain
             calendar.SelectedDate = DateTime.Today;
             if (calendar.SelectedDate.HasValue)
             {
-                fechaTextBox.Text = calendar.SelectedDate?.ToString("dd/MM/yyyy");
+                fechaTextBox.Text = calendar.SelectedDate?.ToString();
             };
 
         }
@@ -37,11 +37,14 @@ namespace WPFMain
         {
             if (sender is Calendar calendar)
             {
-                DateTime selectedDate = calendar.SelectedDate?.Value;
                 TextBox fechaTextBox = (TextBox)calendar.FindName("Fecha");
                 Popup popup = calendar.FindName("popUp1") as Popup;
-                fechaTextBox.Text = selectedDate.ToString("dd/MM/YYYY");
-               // popup.IsOpen = false && calendar.SelectedDate.HasValue;
+                if (calendar.SelectedDate.HasValue)
+                {
+                    fechaTextBox.Text = calendar.SelectedDate?.ToString();
+                    //popup.IsOpen = false;
+                    calendar.ReleaseMouseCapture();
+                }
 
             }
         }
