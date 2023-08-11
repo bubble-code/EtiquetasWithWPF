@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFMain.Model;
 
 namespace WPFMain
 {
@@ -21,19 +22,14 @@ namespace WPFMain
     /// </summary>
     public partial class MainWindow : Window
     {
-        private HashSet<frmMntoExpedicione> selectedItems = new HashSet<frmMntoExpedicione>();
+        public ObservableCollection<SeleccionadosModel> selectedItems = new ObservableCollection<SeleccionadosModel>();
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
-            //selectedItems.CollectionChanged += SelectedItems_CollectionChanged;
-           
+            selectedItemsList.ItemsSource = selectedItems;
         }
 
-        //private void SelectedItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        //{
-        //    count.Content = selectedItems.Count;
-        //}
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -41,19 +37,17 @@ namespace WPFMain
         }
         private void Refresh()
         {
-            //System.Windows.Data.CollectionViewSource frmMntoExpedicioneViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("frmMntoExpedicioneViewSource")));
-            // Load data by setting the CollectionViewSource.Source property:
-            // frmMntoExpedicioneViewSource.Source = [generic data source]
             try
             {
-            using (SolmicroERP6_PruebasSubEntities context = new SolmicroERP6_PruebasSubEntities())
-            {
-                List<frmMntoExpedicione> expediciones = context.frmMntoExpediciones.Where(item=>
-                item.Pendiente > 0 && item.Estado != 3 && item.Estado != 2 && (item.Confirmado?1:0) == 1 ).ToList();
-                frmMntoExpedicioneDataGrid.ItemsSource = expediciones;
-            }
+                using (SolmicroERP6_PruebasSubEntities context = new SolmicroERP6_PruebasSubEntities())
+                {
+                    List<frmMntoExpedicione> expediciones = context.frmMntoExpediciones.Where(item =>
+                    item.Pendiente > 0 && item.Estado != 3 && item.Estado != 2 && (item.Confirmado ? 1 : 0) == 1).ToList();
+                    frmMntoExpedicioneDataGrid.ItemsSource = expediciones;
+                }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -76,6 +70,12 @@ namespace WPFMain
             System.Windows.Data.CollectionViewSource frmMntoExpedicioneViewSource5 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("frmMntoExpedicioneViewSource5")));
             // Load data by setting the CollectionViewSource.Source property:
             // frmMntoExpedicioneViewSource5.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource frmMntoExpedicioneViewSource6 = ((System.Windows.Data.CollectionViewSource)(this.FindResource("frmMntoExpedicioneViewSource6")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // frmMntoExpedicioneViewSource6.Source = [generic data source]
+            System.Windows.Data.CollectionViewSource seleccionadosModelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("seleccionadosModelViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // seleccionadosModelViewSource.Source = [generic data source]
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -86,21 +86,23 @@ namespace WPFMain
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is frmMntoExpedicione item)
-            {               
-                selectedItems.Add(item);
-                count.Content = selectedItems.Count;
-                frmMntoExpedicioneDataGrid.UpdateLayout();
+            {
+                selectedItems.Add((SeleccionadosModel)item);
+                //selectedItemsList.ItemsSource = selectedItems;
+                //frmMntoExpedicioneDataGrid.UpdateLayout();
             }
-           
+
         }
 
         private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             if (sender is CheckBox checkBox && checkBox.DataContext is frmMntoExpedicione item)
             {
-                selectedItems.Remove(item);
-                count.Content = selectedItems.Count;
-                frmMntoExpedicioneDataGrid.UpdateLayout();
+                var selection = selectedItems.FirstOrDefault(s => s.IDLineaPedido == item.IDLineaPedido);
+                if (selection != null)
+                {
+                    selectedItems.Remove((SeleccionadosModel)selection);
+                }
             }
         }
 
