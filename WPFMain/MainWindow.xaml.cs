@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Windows.Forms;
+using Syncfusion.Linq;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -14,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFMain.Model;
+using WPFMain.View;
 
 namespace WPFMain
 {
@@ -125,5 +129,25 @@ namespace WPFMain
             }
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Etiquetas etiquetas = new Etiquetas();
+            etiquetas.SetDataSource(selectedItems.ToList());
+            ReportWinForm reportWinForm = new ReportWinForm(etiquetas);
+            reportWinForm.Show();
+            //etiquetas.SetDataSource(selectedItems.ToList());
+            //ReportDocument reportDocument = new ReportDocument();
+            //CrystalReportViewer crystalReportViewer = new CrystalReportViewer();
+            //crystalReportViewer.Show();
+            //reportDocument.Load("C:\\Users\\a.obregon\\source\\repos\\EtiquetasWithWPF\\WPFMain\\View\\SelectedReport.rpt"); // Reemplaza con la ruta de tu informe .rpt
+
+            //reportDocument.SetDataSource(selectedItems.ToList());
+            // Pasa la lista de objetos seleccionados al informe
+
+            // Muestra el informe en un visor CrystalReportViewer (si lo tienes en tu interfaz)
+            //CrystalReportViewer crystalReportViewer = new CrystalReportViewer();
+            //crystalReportViewer.ReportSource = reportDocument;
+            //crystalReportViewer.Show();
+        }
     }
 }
