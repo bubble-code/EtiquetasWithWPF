@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFMain"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
-        xmlns:Model="clr-namespace:WPFMain.Model" x:Class="WPFMain.MainWindow"
+        xmlns:Model="clr-namespace:WPFMain.Model"
+        x:Class="WPFMain.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="958" Width="1746" Loaded="Window_Loaded_1">
     <Window.Resources>
@@ -181,50 +182,56 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
                 <TextBlock 
                     Text="Selección de Articulos"
                     Grid.Row="0"
+                    Grid.Column="0"
                     Foreground="Orange" FontWeight="Bold" Margin="0,0,20,0"                    
                     />
-                
-                    <Grid Height="305" Grid.Row="1">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <DataGrid x:Name="selectedItemsList" 
+
+                <Grid Height="305" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid x:Name="selectedItemsList" 
                                   RowDetailsVisibilityMode="VisibleWhenSelected"                                   
                                   EnableRowVirtualization="True" AutoGenerateColumns="False" 
                                   ScrollViewer.HorizontalScrollBarVisibility="Visible" 
                                   ScrollViewer.VerticalScrollBarVisibility="Visible" 
                                   ScrollViewer.CanContentScroll="True" 
-                                  Height="305"
-                                  Style="{StaticResource CustomDataGrid}"
+                                  Height="308"
+                                  Style="{StaticResource CustomDataGrid}" Width="800"
                                    >
-                            <DataGrid.ColumnHeaderStyle>
-                                <Style TargetType="{x:Type DataGridColumnHeader}">
-                                    <Setter Property="Foreground" Value="Blue" />
-                                    <Setter Property="HorizontalAlignment" Value="Center"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                </Style>
-                            </DataGrid.ColumnHeaderStyle>
-                            <DataGrid.Columns>
-                                <DataGridTextColumn x:Name="descArticuloColumn" Width="SizeToHeader" Header="Desc Articulo" Binding="{Binding DescArticulo}"/>
-                                <DataGridTextColumn x:Name="descClienteColumn" Width="SizeToHeader" Header="Desc Cliente" Binding="{Binding DescCliente}"/>
-                                <DataGridTextColumn x:Name="factorColumn" Width="SizeToHeader" Header="Factor" Binding="{Binding Factor}"/>
-                                <DataGridTextColumn x:Name="iDArticuloColumn1" Width="SizeToHeader" Header="IDArticulo" Binding="{Binding IDArticulo}"/>
-                                <DataGridTextColumn x:Name="iDLineaPedidoColumn" Width="SizeToHeader" Header="IDLinea Pedido" Binding="{Binding IDLineaPedido}"/>
-                                <DataGridTextColumn x:Name="iDPedidoColumn" Width="SizeToHeader" Header="IDPedido" Binding="{Binding IDPedido}"/>
-                                <DataGridTextColumn x:Name="importeColumn" Width="SizeToHeader" Header="Importe" Binding="{Binding Importe}"/>
-                                <DataGridTextColumn x:Name="nPedidoColumn" Width="SizeToHeader" Header="NPedido" Binding="{Binding NPedido}"/>
-                                <DataGridTextColumn x:Name="pedidoClienteColumn" Width="SizeToHeader" Header="Pedido Cliente" Binding="{Binding PedidoCliente}"/>
-                                <DataGridTextColumn x:Name="precioColumn" Width="SizeToHeader" Header="Precio" Binding="{Binding Precio}"/>
-                                <DataGridTextColumn x:Name="qPedidaColumn" Width="SizeToHeader" Header="QPedida" Binding="{Binding QPedida}"/>
-                                <DataGridTextColumn x:Name="qServidaColumn" Width="SizeToHeader" Header="QServida" Binding="{Binding QServida}"/>
-                                <DataGridTextColumn x:Name="refClienteColumn" Width="SizeToHeader" Header="Ref Cliente" Binding="{Binding RefCliente}"/>
-                                <DataGridTextColumn x:Name="udValoracionColumn" Width="SizeToHeader" Header="Ud Valoracion" Binding="{Binding UdValoracion}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </Grid>
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Foreground" Value="Blue" />
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name="descArticuloColumn" Width="SizeToHeader" Header="Desc Articulo" Binding="{Binding DescArticulo}"/>
+                            <DataGridTextColumn x:Name="descClienteColumn" Width="SizeToHeader" Header="Desc Cliente" Binding="{Binding DescCliente}"/>
+                            <DataGridTextColumn x:Name="factorColumn" Width="SizeToHeader" Header="Factor" Binding="{Binding Factor}"/>
+                            <DataGridTextColumn x:Name="iDArticuloColumn1" Width="SizeToHeader" Header="IDArticulo" Binding="{Binding IDArticulo}"/>
+                            <DataGridTextColumn x:Name="iDLineaPedidoColumn" Width="SizeToHeader" Header="IDLinea Pedido" Binding="{Binding IDLineaPedido}"/>
+                            <DataGridTextColumn x:Name="iDPedidoColumn" Width="SizeToHeader" Header="IDPedido" Binding="{Binding IDPedido}"/>
+                            <DataGridTextColumn x:Name="importeColumn" Width="SizeToHeader" Header="Importe" Binding="{Binding Importe}"/>
+                            <DataGridTextColumn x:Name="nPedidoColumn" Width="SizeToHeader" Header="NPedido" Binding="{Binding NPedido}"/>
+                            <DataGridTextColumn x:Name="pedidoClienteColumn" Width="SizeToHeader" Header="Pedido Cliente" Binding="{Binding PedidoCliente}"/>
+                            <DataGridTextColumn x:Name="precioColumn" Width="SizeToHeader" Header="Precio" Binding="{Binding Precio}"/>
+                            <DataGridTextColumn x:Name="qPedidaColumn" Width="SizeToHeader" Header="QPedida" Binding="{Binding QPedida}"/>
+                            <DataGridTextColumn x:Name="qServidaColumn" Width="SizeToHeader" Header="QServida" Binding="{Binding QServida}"/>
+                            <DataGridTextColumn x:Name="refClienteColumn" Width="SizeToHeader" Header="Ref Cliente" Binding="{Binding RefCliente}"/>
+                            <DataGridTextColumn x:Name="udValoracionColumn" Width="SizeToHeader" Header="Ud Valoracion" Binding="{Binding UdValoracion}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Button Grid.Row="0" Grid.Column="1" Content="Generar Report" Click="Button_Click_1" RenderTransformOrigin="-5.924,-18.683"/>
                
             </Grid>
         </DockPanel>
