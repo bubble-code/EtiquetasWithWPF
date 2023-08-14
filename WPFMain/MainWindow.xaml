@@ -224,8 +224,8 @@
                             <DataGridTextColumn x:Name="nPedidoColumn" Width="SizeToHeader" Header="NPedido" Binding="{Binding NPedido}"/>
                             <DataGridTextColumn x:Name="pedidoClienteColumn" Width="SizeToHeader" Header="Pedido Cliente" Binding="{Binding PedidoCliente}"/>
                             <DataGridTextColumn x:Name="precioColumn" Width="SizeToHeader" Header="Precio" Binding="{Binding Precio}"/>
-                            <DataGridTextColumn x:Name="qPedidaColumn" Width="SizeToHeader" Header="QPedida" Binding="{Binding QPedida}"/>
-                            <DataGridTextColumn x:Name="qServidaColumn" Width="SizeToHeader" Header="QServida" Binding="{Binding QServida}"/>
+                            <DataGridTextColumn x:Name="qPedidaColumn" Width="SizeToHeader" Header="QPedida" Binding="{Binding QPedida,StringFormat=\{0:0\}}"/>
+                            <DataGridTextColumn x:Name="qServidaColumn" Width="SizeToHeader" Header="QServida" Binding="{Binding QServida,StringFormat=\{0:0\}}"/>
                             <DataGridTextColumn x:Name="refClienteColumn" Width="SizeToHeader" Header="Ref Cliente" Binding="{Binding RefCliente}"/>
                             <DataGridTextColumn x:Name="udValoracionColumn" Width="SizeToHeader" Header="Ud Valoracion" Binding="{Binding UdValoracion}"/>
                         </DataGrid.Columns>
