@@ -21,6 +21,8 @@ namespace WPFMain.Model
         public int UdValoracion { get; set; }
         public decimal Factor { get; set; }
         public string DescCliente { get; set; }
+        public string IDCliente { get; set; }
+        public int IDDireccionEnvio { get; set; }
 
         public static explicit operator SeleccionadosModel(frmMntoExpedicione v)
         {
@@ -40,6 +42,8 @@ namespace WPFMain.Model
                 UdValoracion = v.UdValoracion,
                 Factor = v.Factor,
                 DescCliente = v.DescCliente,
+                IDCliente = v.IDCliente,
+                IDDireccionEnvio = (int)v.IDDireccionEnvio,
             };
         }
     }
